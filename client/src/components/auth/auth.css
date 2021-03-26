@@ -1,0 +1,95 @@
+.title-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+/* FORM */
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+/* Submit button */
+
+button {
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    height: 50px;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+    position: relative;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    transition: color 100ms;
+}
+
+button::after {
+    content: "";
+    top: 90%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    position: absolute;
+
+    transition: top 100ms;
+
+    z-index: -1;
+}
+
+button:hover::after {
+    top: 0;
+}
+
+button:hover {
+    color: white;
+    border-bottom: 2px solid rgba(0, 0, 0);
+}
+
+.btn-login::after {
+    background-color: rgb(35, 167, 8);
+}
+
+.btn-signup::after {
+    background-color: rgb(0, 160, 223);
+}
+
+/* Inputs and labels */
+
+input {
+    border: 0;
+    font-size: 20px;
+    border-bottom: 2px solid rgb(134, 134, 134);
+    transition: font-size 100ms;
+}
+
+label {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+
+    border-bottom: 2px solid rgb(0, 0, 0);
+    padding-bottom: 0;
+}
+
+.input-login:focus {
+    border-color: rgb(35, 167, 8);
+}
+
+.input-signup:focus {
+    border-color: rgb(0, 160, 223);
+}

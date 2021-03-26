@@ -1,0 +1,45 @@
+.loader {
+    display: grid;
+    grid-template-columns: 33% auto 33%;
+    grid-template-rows: 100%;
+
+    height: 60px;
+    width: 80px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loader div {
+    width: 80%;
+    height: 50%;
+    background-color: red;
+    justify-self: center;
+    align-self: center;
+
+    animation: loader 1s cubic-bezier(0.7, 0.8, 0.9, 1) infinite;
+}
+
+.loader :nth-child(1) {
+    grid-column-start: 1;
+    animation-delay: -0.24s;
+}
+
+.loader :nth-child(2) {
+    grid-column-start: 2;
+    animation-delay: -0.12s;
+}
+
+.loader :nth-child(3) {
+    grid-column-start: 3;
+}
+
+@keyframes loader {
+    0% {
+        height: 70%;
+    }
+    50%,
+    100% {
+        height: 40%;
+    }
+}

@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    position: relative;
+}
+
+.App {
+    text-align: center;
+    height: 100%;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    color: white;
+
+    margin-top: 50px;
+    width: 40%;
+    height: 50px;
+
+    align-items: center;
+
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(177, 17, 6);
+}

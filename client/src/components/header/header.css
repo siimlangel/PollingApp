@@ -1,0 +1,56 @@
+.header-container {
+    background-color: green;
+    display: grid;
+    grid-template-columns: 20% auto 50%;
+    grid-template-rows: auto;
+}
+
+/* Header links */
+
+.header-link-container {
+    grid-column-start: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    place-self: center stretch;
+}
+
+.header-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.header-link-container div {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.header-container a:visited {
+    text-decoration: none;
+}
+
+/* Header title */
+
+.header-title-container {
+    justify-self: center;
+}
+
+.header-container h1 {
+    color: white;
+}
+
+.header-profile-container {
+    display: flex;
+}
+
+.header-username-container {
+    height: 50%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: auto;
+    font-size: 20px;
+}
