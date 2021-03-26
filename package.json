@@ -23,6 +23,7 @@
     "scripts": {
         "dev": "concurrently \"npm run client\"  \"npm run server\" ",
         "server": "tsnd --respawn src/index.ts",
-        "client": "(cd client && npm start)"
+        "client": "(cd client && npm start)",
+        "dummy-data": "ts-node src/dummy.ts"
     }
 }

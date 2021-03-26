@@ -12,7 +12,7 @@ export class Answer {
     @Column()
     text: string;
 
-    @Column({type: "integer"})
+    @Column({type: "integer", default: 0})
     votes: number;
 
     @ManyToOne(() => Poll, poll => poll.answers, {
