@@ -1,10 +1,26 @@
 # A polling app with authentication
 
-Steps to run this project:
+Steps to run this application
 
--Run `npm i` command
+- run `npm i`
+- Setup database settings inside `src/ormconfig.json` 
+    - the specified database name has to be an exisiting database
+- create a `.env` file and add `JWT_SECRET=your_secret_key` to it
+- run `npm run dev` to create tables 
+- run `npm run dummy-data` to create dummy data in the tables
+- run `npm run dev` again to start the project
 
--Setup database settings inside `ormconfig.json` file
+---
+# Overview
+I made this project to learn to make a web application that uses authentication and a database for persistent storage.
 
--Run `npm run dev` command to start the app
+## Backend
+I used express.js to make an api, type-orm for database management and jsonwebtoken for authentication. Everything was written in typescript.
 
+## Frontend
+I chose to learn React with this project. I used react-dom-router for routing and react-redux for an app-wide store to make state management and authentication easier. 
+
+
+
+---
+My css skills could use some work...
