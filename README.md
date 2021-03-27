@@ -24,3 +24,7 @@ I chose to learn React with this project. I used react-dom-router for routing an
 
 ---
 My css skills could use some work...
+
+Some things are still unimplemented.
+
+Like deleting polls, viewing your own polls sperately, searching for polls and jwts expiring.
