@@ -27,4 +27,4 @@ My css skills could use some work...
 
 Some things are still unimplemented.
 
-Like deleting polls, viewing your own polls sperately, searching for polls and jwts expiring.
+Like deleting polls, viewing your own polls seperately, searching for polls and jwts expiring.
