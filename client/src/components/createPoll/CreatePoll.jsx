@@ -26,7 +26,11 @@ export const CreatePoll = () => {
     const [poll, setPoll] = useState(initialState)
 
     const addAns = () => {
+
+        // Max 10 answers for 1 poll
         if (poll.answers.length > 10) return
+
+        // Add an answer
         setPoll(prevPoll => {
             return {
                 ...prevPoll,
@@ -59,9 +63,9 @@ export const CreatePoll = () => {
         
     }
 
+    // Poll data two-way binding
     const handleChange = e => {
         e.persist();
-        
         setPoll(prevPoll => {
             return {
                 ...prevPoll,
@@ -70,6 +74,7 @@ export const CreatePoll = () => {
         })
     }
 
+    // Answer data two-way binding
     const handleAnsChange = (e, i) => {
         e.persist();
         setPoll(prevPoll => {

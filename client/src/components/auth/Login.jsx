@@ -26,6 +26,7 @@ export const Login = (props) => {
 
         setError(null);
 
+        // Try to log the user in
         dispatch(actions.authLogin(user.username, user.password))
             .then((res) => {
                 dispatch(actions.tryAutoLogin())
@@ -36,6 +37,7 @@ export const Login = (props) => {
             });
     };
 
+    // To change label color on input focus
     const handleFocus = ref => {
         ref.current.style.fontWeight = "bold";
         ref.current.style.color = "green";

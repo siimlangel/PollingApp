@@ -32,6 +32,7 @@ export const SignUp = (props) => {
             return;
         }
 
+        // Try to register an account
         dispatch(actions.authSignup(user.username, user.password))
             .then((res) => {
                 dispatch(actions.tryAutoLogin())
@@ -42,7 +43,9 @@ export const SignUp = (props) => {
             .catch((err) => {
                 setError("Username already taken");
             });
-    };
+    };  
+
+    // To change label color on input focus
 
     const handleFocus = ref => {
         ref.current.style.color = "rgb(0, 160, 223)";
