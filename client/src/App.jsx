@@ -12,6 +12,7 @@ import { Header } from "./components/header/Header";
 export const App = () => {
     const dispatch = useDispatch();
 
+    // Try to log an user in automaticallt in case of page refresh or whatnot
     useEffect(() => {
         dispatch(actions.tryAutoLogin());
     }, []);

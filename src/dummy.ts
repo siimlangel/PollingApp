@@ -4,6 +4,7 @@ import { Poll } from "./entity/Poll";
 import { User } from "./entity/User";
 
 
+// Insert dummy data to db
 createConnection().then(async connection => {
     let user = await connection.manager.save(connection.manager.create(User, {
         username: "Timber",

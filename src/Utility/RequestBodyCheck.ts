@@ -1,6 +1,7 @@
 import {Request} from "express";
 
 
+// Check if body has params
 export default (request: Request, paramsToCheck: string[]) : {valid:boolean, error:string} => {
     const errors: string[] = [];
     for (let param of paramsToCheck) {

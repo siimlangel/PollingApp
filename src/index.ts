@@ -43,40 +43,6 @@ createConnection().then(async connection => {
     app.listen(process.env.PORT || 3006);
     
     
-    // insert new users for test
-    /*
-    await connection.manager.save(connection.manager.create(User, {
-        username: "Timber",
-        password: "Saw",
-        age: 27
-    }));
-    await connection.manager.save(connection.manager.create(User, {
-        username: "Phantom",
-        password: "Assassin",
-        age: 24
-    })); 
-
-    
-    // Create test answers to test question
-    const answers = []
-    for (let i: number = 0; i <= 3; i++) {
-        let answer = await connection.manager.create(Answer, {
-            text: `Question ${i}`
-        });
-        await connection.manager.save(answer);
-        answers.push(answer);
-    }
-
-
-    // Create and save test question 
-    await connection.manager.save(connection.manager.create(Poll, {
-        title: "Test poll",
-        description: "Pls work",
-        answers,
-    }))
-    */
-    
-    
     
     console.log("Express server has started on port 3006. Open http://localhost:3006/users to see results");
 }).catch(error => console.log(error));

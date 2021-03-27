@@ -38,12 +38,14 @@ export const setUser = (user) => {
 export const authLogin = (username, password) => (dispatch) => {
     dispatch(authStart());
 
+    // Send credentials
     return axios
         .post("/users/login", {
             username,
             password,
         })
         .then((res) => {
+            // If credentials valid set jwt in localstorage
             const token = res.data.Token;
             localStorage.setItem("token", token);
 
@@ -60,6 +62,7 @@ export const authLogin = (username, password) => (dispatch) => {
 export const authSignup = (username, password) => (dispatch) => {
     dispatch(authStart());
 
+    // Send credentials
     return axios
         .post("/users/register", {
             username,
@@ -84,8 +87,10 @@ export const tryAutoLogin = () => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token === undefined || token === null) {
+        // If no token in localstorage log the user out
         dispatch(authLogout());
     } else {
+        // LOg the user in with the token saved in localstorage
         dispatch(authSuccess(token));
         return axios
             .get(`/users/${token.split(" ")[1]}`, {

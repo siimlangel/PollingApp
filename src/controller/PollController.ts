@@ -13,8 +13,8 @@ export class PollController implements Controller {
 
     private relations = {relations: ["answers"]};
 
+    // Get all polls belonging to a user
     async userPolls(request: Request, response: Response, next: NextFunction ) {
-        // Get all polls belonging to wanted user
         try {
             const uuid = request.user;
             return this.UserRepository.createQueryBuilder("user")
@@ -28,6 +28,7 @@ export class PollController implements Controller {
         
     }
 
+    // Get poll by uuid
     async one(request: Request, response: Response, next: NextFunction ) {
         try {
             const uuid = request.params.uuid;
@@ -42,8 +43,8 @@ export class PollController implements Controller {
 
     }
 
+    // Save an users poll
     async save(request: Request, response: Response, next: NextFunction ) {
-        // Save an users poll
 
         const pollToSave = request.body.poll;
         const uuid = request.user;
@@ -69,13 +70,13 @@ export class PollController implements Controller {
     
     }
 
+    // Returns polls according to a pagination request
     async paginate(request: Request, response: Response, next: NextFunction) {
         try {
-            const limit = parseInt(request.params.limit);
-            const offset = parseInt(request.params.offset);
+            const limit = parseInt(request.params.limit); /* How many polls to get */
+            const offset = parseInt(request.params.offset); /* which polls to skip (where to start from) */
 
-            console.log(request.params);
-
+            // Get total number of polls available to poll browser
             const totalCount = await this.PollRepository.createQueryBuilder("poll")
             .getCount();
 
@@ -91,12 +92,15 @@ export class PollController implements Controller {
         }
     }
 
+    // Delete a poll
     async remove(request: Request, response: Response, next: NextFunction ) {
         return await this.PollRepository.findOneOrFail({uuid: request.params.uuid})
         .then(async res => await this.PollRepository.remove(res))
         .catch(error => Promise.reject({error, status:400}));
     }
 
+    // Submitting of a poll
+    // Saves updated answers
     async update(request: Request, response: Response, next: NextFunction) {
         const answers = request.body.poll.answers;
         

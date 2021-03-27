@@ -18,6 +18,9 @@ export const ViewPoll = (props) => {
         axios
         .get(`/polls/${uuid}`)
         .then(res => {
+            // Add a check whether vote was checked or not 
+            // As you can't add to the vote count because
+            // react strict mode runs setState twice to enforce that no direct state mutations are happening
             const answersWithVoteCheck = res.data.answers.map(ans => {
                 return {
                     ...ans,
@@ -38,12 +41,10 @@ export const ViewPoll = (props) => {
     const handleAnsChange = (e, i) => {
         const checked = e.target.checked;
         setPoll(prevPoll => {
-            const newAnswers = prevPoll.answers.slice().map(ans => {
-                return {
-                    ...ans,
-                    voted: checked
-                }
-            });
+            const newAnswers = prevPoll.answers.slice();
+
+            // Toggle wether and answers was voted for or not
+            newAnswers[i].voted = checked;
             
 
             return {
@@ -72,7 +73,10 @@ export const ViewPoll = (props) => {
 
         axios
         .post(`/polls/${poll.uuid}`, {poll: pollToSubmit})
-        .then(res => setSubmitted(true))
+        .then(res => {
+            console.log(res);
+            setSubmitted(true);
+        } )
         .catch(err => setError("Couldn't submit your answer, try again"))
     }
 
